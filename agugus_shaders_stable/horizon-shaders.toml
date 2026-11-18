@@ -1,0 +1,368 @@
+schema = 1
+id = "agugus_shaders_stable"
+name = "Agugus Shaders (Stable)"
+version = "1.0.0"
+api = "0.1"
+description = "Soft pastel light, bloom and a gentle grade. A native Horizon shader pack for shader API 0.1, for Horizon stable releases (v0.2.97 and its line) that predate shader API 0.2. The shader API 0.2 edition of Agugus Shaders has the stages this line lacks."
+authors = ["Agugus"]
+
+shared = ["common.wgsl"]
+
+[sky]
+file = "sky.wgsl"
+
+[material]
+file = "material.wgsl"
+
+[[post]]
+file = "atmosphere.wgsl"
+name = "Atmosphere"
+
+[[post]]
+file = "godrays.wgsl"
+name = "Godrays"
+
+[[post]]
+file = "ssao.wgsl"
+name = "SSAO"
+
+[[post]]
+file = "bloom.wgsl"
+name = "Bloom"
+
+[[post]]
+file = "final.wgsl"
+name = "Grade"
+
+[[options]]
+id = "color_scheme"
+name = "Colour scheme"
+type = "choice"
+values = ["Default", "Vanilla", "Choc v7", "Visually Vibrant"]
+default = "Default"
+
+[[options]]
+id = "tonemap_operator"
+name = "Tonemap operator"
+type = "choice"
+values = ["ACES Film", "Reinhard-Jodie", "ACES Slow", "Hejl 2015"]
+default = "ACES Film"
+
+[[options]]
+id = "exposure"
+name = "Exposure"
+type = "float"
+default = 2.5
+min = 0.0
+max = 3.0
+step = 0.1
+
+[[options]]
+id = "saturation"
+name = "Saturation"
+type = "float"
+default = 1.2
+min = 0.0
+max = 2.0
+step = 0.02
+
+[[options]]
+id = "vibrance"
+name = "Vibrance"
+type = "float"
+default = 1.2
+min = 0.0
+max = 2.0
+step = 0.02
+
+[[options]]
+id = "contrast"
+name = "Contrast"
+type = "float"
+default = 0.9
+min = 0.5
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "min_light_amount"
+name = "Minimum light"
+type = "float"
+default = 0.15
+min = 0.0
+max = 0.4
+step = 0.01
+
+[[options]]
+id = "lm_falloff_curve"
+name = "Block light falloff"
+type = "float"
+default = 1.6
+min = 0.0
+max = 2.0
+step = 0.2
+
+[[options]]
+id = "lm_red"
+name = "Torch light red"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "lm_green"
+name = "Torch light green"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "lm_blue"
+name = "Torch light blue"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "lm_flicker"
+name = "Torch light flicker"
+type = "bool"
+default = false
+
+[[options]]
+id = "sunrise_ambient"
+name = "Sunrise ambient"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "noon_ambient"
+name = "Noon ambient"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "sunset_ambient"
+name = "Sunset ambient"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "night_ambient"
+name = "Night ambient"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "rain_sky_darkening"
+name = "Rain sky darkening"
+type = "float"
+default = 0.33
+min = 0.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "rain_sky_desaturation"
+name = "Rain sky desaturation"
+type = "float"
+default = 0.5
+min = 0.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "fancy_water"
+name = "Fancy water"
+type = "bool"
+default = true
+
+[[options]]
+id = "water_red"
+name = "Water red"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "water_green"
+name = "Water green"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "water_blue"
+name = "Water blue"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "water_alpha"
+name = "Water alpha"
+type = "float"
+default = 0.0
+min = -1.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "biome_water_contribution"
+name = "Biome water colour"
+type = "float"
+default = 0.0
+min = -0.5
+max = 0.5
+step = 0.01
+
+[[options]]
+id = "water_normal_strength"
+name = "Water normal strength"
+type = "float"
+default = 1.0
+min = 0.5
+max = 1.5
+step = 0.25
+
+[[options]]
+id = "reflections"
+name = "Water reflections"
+type = "choice"
+values = ["Off", "Sky"]
+default = "Sky"
+
+[[options]]
+id = "reflect_sun"
+name = "Reflect sun on water"
+type = "bool"
+default = true
+
+[[options]]
+id = "bloom"
+name = "Bloom"
+type = "bool"
+default = true
+
+[[options]]
+id = "bloom_strength"
+name = "Bloom strength"
+type = "float"
+default = 0.4
+min = 0.0
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "bloom_curve"
+name = "Bloom curve"
+type = "float"
+default = 0.3
+min = 0.1
+max = 1.0
+step = 0.01
+
+[[options]]
+id = "godrays"
+name = "Godrays"
+type = "bool"
+default = false
+
+[[options]]
+id = "godrays_strength"
+name = "Godrays strength"
+type = "float"
+default = 0.5
+min = 0.0
+max = 1.0
+step = 0.1
+
+[[options]]
+id = "ssao"
+name = "SSAO"
+type = "bool"
+default = false
+
+[[options]]
+id = "ssao_strength"
+name = "SSAO strength"
+type = "float"
+default = 0.3
+min = 0.1
+max = 0.5
+step = 0.05
+
+[[options]]
+id = "ssao_scale"
+name = "SSAO scale"
+type = "float"
+default = 0.5
+min = 0.25
+max = 0.75
+step = 0.05
+
+[[options]]
+id = "film_grain"
+name = "Film grain"
+type = "bool"
+default = false
+
+[[options]]
+id = "film_grain_strength"
+name = "Film grain strength"
+type = "float"
+default = 0.05
+min = 0.025
+max = 0.2
+step = 0.025
+
+[[options]]
+id = "vignette_opacity"
+name = "Vignette"
+type = "float"
+default = 0.0
+min = 0.0
+max = 2.0
+step = 0.25
+
+[[options]]
+id = "image_sharpening"
+name = "Image sharpening"
+type = "bool"
+default = false
+
+[[options]]
+id = "sharpening"
+name = "Sharpening"
+type = "float"
+default = 0.2
+min = 0.1
+max = 1.0
+step = 0.1
+
+[budget]
+gpu_ms = 2.0
